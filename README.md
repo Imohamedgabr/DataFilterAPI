@@ -68,8 +68,11 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 To Run using Docker
 
-- run > docker-compose build app
-- run > docker-compose up -d
+> docker-compose build app
+> docker-compose up -d
+
+To reach the API Please run this curl command or use Postman
+> curl --location --request GET 'localhost:8000/api/users'
 
 I've put in mind:
 
