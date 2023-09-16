@@ -66,7 +66,18 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
+To Run using Docker
 
-- run this to build > docker-compose build app
-- run this > docker-compose up -d
-- run > docker-compose exec app composer install
+- run > docker-compose build app
+- run > docker-compose up -d
+
+I've put in mind:
+
+1. Emphasized the importance of writing clean code to enhance maintainability and readability.
+2. Implemented robust exception handling mechanisms to ensure graceful handling of errors and prevent application crashes.
+3. Enforced type linting for functions to enhance code reliability and catch potential type-related bugs at compile-time.
+4. Optimized performance by adopting an early return strategy whenever applicable, reducing unnecessary computations and improving overall efficiency.
+5. Addressed memory limitations by implementing chunked file reading techniques, allowing the processing of large files without exceeding memory constraints.
+6. Ensured code scalability by introducing a modular DataProviderZ system, where new data providers can be easily added by modifying the configuration file (/config/filepaths.php) without impacting the core codebase.
+7. Enhanced code quality and reliability by incorporating unit and feature tests, validating the correctness and functionality of the codebase.
+8. Implemented Docker to provide a consistent and reproducible development and deployment environment, streamlining the setup process and facilitating collaboration among team members.

@@ -31,25 +31,16 @@ RUN mkdir -p /home/$user/.composer && \
 # Set working directory
 WORKDIR /var/www
 
-# Copy composer.json and composer.lock
-COPY composer.json composer.lock ./
+# Copy entire project to working directory
+COPY . /var/www
 
-# Run composer install
-RUN composer install --no-scripts --no-autoloader
+# Return to root user to set permissions
+USER root
 
-# Copy entire application into Docker image
-COPY . .
+# Ensure Laravel directories have the correct permissions
+RUN chown -R $user:www-data storage bootstrap/cache storage/framework/sessions
+RUN chmod -R 775 storage bootstrap/cache storage/framework/sessions
+RUN chmod -R 775  storage/framework 
 
-# Change the owner and group of the storage and bootstrap/cache directories
-RUN chown -R $user:www-data storage bootstrap/cache
-
-# Change the permissions of the storage and bootstrap/cache directories
-RUN chmod -R 775 storage bootstrap/cache
-RUN chmod -R 775 storage/logs
-RUN chown -R $user:www-data .env
-RUN chown -R $user:www-data storage/logs
-
+# Switch back to the custom user
 USER $user
-
-# Generate the autoloader file
-RUN composer dump-autoload --optimize
