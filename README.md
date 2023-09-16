@@ -69,6 +69,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 To Run using Docker
 
 > docker-compose build app
+<br />
 > docker-compose up -d
 
 To reach the API Please run this curl command or use Postman
