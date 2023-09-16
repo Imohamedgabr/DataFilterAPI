@@ -7,6 +7,20 @@ docker-compose build app
 docker-compose up -d
 ```
 
+## Running Tests
+
+Execute the following command to run the tests:
+
+```bash
+php artisan test
+```
+
+To run the tests from outside of the Docker container, use the following command:
+
+```bash
+docker-compose exec app php artisan test
+```
+
 ## Interacting with the API
 
 You can interact with the API using curl or Postman. Here's an example curl command:
