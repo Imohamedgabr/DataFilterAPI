@@ -34,13 +34,24 @@ WORKDIR /var/www
 # Copy entire project to working directory
 COPY . /var/www
 
+# Create vendor directory
+RUN composer install --no-scripts
+
+# Create vendor directory and set ownership
+RUN mkdir -p /var/www/vendor && \
+    chown -R $user:$user /var/www/vendor
+
+# Run composer install
+RUN cd /var/www && composer install
+RUN cd /var/www && composer dump-autoload
+
 # Return to root user to set permissions
 USER root
 
 # Ensure Laravel directories have the correct permissions
 RUN chown -R $user:www-data storage bootstrap/cache storage/framework/sessions
 RUN chmod -R 775 storage bootstrap/cache storage/framework/sessions
-RUN chmod -R 775  storage/framework 
+RUN chmod -R 775 storage/framework
 
 # Switch back to the custom user
 USER $user

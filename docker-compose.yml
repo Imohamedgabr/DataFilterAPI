@@ -13,6 +13,7 @@ services:
     working_dir: /var/www/
     volumes:
       - ./:/var/www
+      - vendor:/var/www/vendor
     networks:
       - parent
 
@@ -47,3 +48,6 @@ services:
 networks:
   parent:
     driver: bridge
+
+volumes:
+  vendor:
