@@ -35,7 +35,7 @@ In the development of this application, several key principles and strategies we
 
 1. **Clean Code**: Code has been written with a focus on readability and maintainability.
 2. **Exception Handling**: Robust exception handling mechanisms are in place to ensure graceful error handling and prevent application crashes.
-3. **Type Linting**: Types are enforced in functions to catch potential type-related issues during compile-time.
+3. **Type Hinting**: Types are enforced in functions to catch potential type-related issues during compile-time.
 4. **Performance Optimization**: An early return strategy is used where applicable to reduce unnecessary computations and improve efficiency.
 5. **Memory Management**: Chunked file reading techniques are used to process large files without exceeding memory constraints.
 6. **Scalability**: A modular DataProviderZ system is introduced for easy addition of new data providers. The addition can be done by modifying the configuration file (`/config/filepaths.php`) without impacting the core codebase.
